@@ -5,7 +5,7 @@
   "main": "vfile-util-git-history.js",
   "scripts": {
     "precommit": "lint-staged",
-    "test": "eslint ."
+    "test": "eslint . && jest"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,10 @@
     "https://github.com/ChristianMurphy/vfile-util-git-history#readme",
   "devDependencies": {
     "eslint": "^4.18.2",
+    "eslint-plugin-jest": "^21.14.0",
     "eslint-plugin-node": "^6.0.1",
     "husky": "^0.14.3",
+    "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.1"
   },
@@ -43,11 +45,18 @@
       "es6": true,
       "node": true
     },
+    "globals": {
+      "jest/globals": true
+    },
     "parserOptions": {
       "ecmaVersion": 2018
     },
-    "plugins": ["node"],
-    "extends": ["eslint:recommended", "plugin:node/recommended"]
+    "plugins": ["jest", "node"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:jest/recommended",
+      "plugin:node/recommended"
+    ]
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write", "git add"]
