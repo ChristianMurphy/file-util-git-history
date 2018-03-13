@@ -6,6 +6,11 @@ const assert = require("assert");
 
 const accessAsync = promisify(access);
 
+/**
+ * Find closest git parent of a file or folder
+ * @param {string} path - path to file or folder
+ * @returns {string} path to git parent folder
+ */
 async function resolveGitFolder(path) {
   assert(isAbsolute(path), "path must be absolute");
 
@@ -27,6 +32,12 @@ async function resolveGitFolder(path) {
   }
 }
 
+/**
+ * Read this history of a file in source control
+ * @param {string} filePath - path to file
+ * @param {string} gitPath - path to git folder
+ * @returns {Commit[]} list of NodeGit commit objects
+ */
 async function readHistory(filePath, gitPath) {
   // ensure filepath and gitpath exist
   await accessAsync(filePath);
@@ -52,6 +63,12 @@ async function readHistory(filePath, gitPath) {
   return history;
 }
 
+/**
+ * Read this history of a file in source control
+ * @param {string} filePath - path to file
+ * @param {Object} [options] - optional predetermined gitPath
+ * @returns {Commit[]} list of NodeGit commit objects
+ */
 async function gitHistory(filePath, options = {}) {
   const gitPath = options.gitPath ? gitPath : await resolveGitFolder(filePath);
   return readHistory(filePath, gitPath);
