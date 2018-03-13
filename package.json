@@ -1,25 +1,17 @@
 {
-  "name": "vfile-util-git-history",
+  "name": "file-util-git-history",
   "version": "1.0.0",
-  "description": "Get a vfile's git history",
-  "main": "vfile-util-git-history.js",
+  "description": "Get a file's git history",
+  "main": "file-util-git-history.js",
   "scripts": {
     "precommit": "lint-staged",
     "test": "eslint . && jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ChristianMurphy/vfile-util-git-history.git"
+    "url": "git+https://github.com/ChristianMurphy/file-util-git-history.git"
   },
-  "keywords": [
-    "virtual",
-    "file",
-    "text",
-    "processing",
-    "git",
-    "history",
-    "vfile"
-  ],
+  "keywords": ["file", "utility", "git", "history", "source", "commit", "scm"],
   "author": {
     "name": "Christian Murphy",
     "email": "Christian.Murphy.42@gmail.com",
@@ -27,10 +19,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ChristianMurphy/vfile-util-git-history/issues"
+    "url": "https://github.com/ChristianMurphy/file-util-git-history/issues"
   },
-  "homepage":
-    "https://github.com/ChristianMurphy/vfile-util-git-history#readme",
+  "homepage": "https://github.com/ChristianMurphy/file-util-git-history#readme",
   "devDependencies": {
     "eslint": "^4.18.2",
     "eslint-plugin-jest": "^21.14.0",
