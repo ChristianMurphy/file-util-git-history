@@ -28,9 +28,9 @@ test("should read commits", async () => {
 
 test("should have first commit", async () => {
   const history = await readHistory(__filename, resolve(__dirname, ".git"));
-  const firstSha = history[0].commit.sha();
+  const initialCommit = history[history.length - 1].commit.sha();
   // commit where this spec was added
-  await expect(firstSha).toBe("038c2a637df844bdd547e68686a7fc764e6aae31");
+  expect(initialCommit).toBe("a31293d6ff81be7e8f54181ff592a6efd91500fe");
 });
 
 test("missing file should fail", async () => {
