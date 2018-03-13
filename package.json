@@ -1,0 +1,41 @@
+{
+  "name": "vfile-util-git-history",
+  "version": "1.0.0",
+  "description": "Get a vfile's git history",
+  "main": "vfile-util-git-history.js",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianMurphy/vfile-util-git-history.git"
+  },
+  "keywords": [
+    "virtual",
+    "file",
+    "text",
+    "processing",
+    "git",
+    "history",
+    "vfile"
+  ],
+  "author": {
+    "name": "Christian Murphy",
+    "email": "Christian.Murphy.42@gmail.com",
+    "url": "https://github.com/ChristianMurphy"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChristianMurphy/vfile-util-git-history/issues"
+  },
+  "homepage":
+    "https://github.com/ChristianMurphy/vfile-util-git-history#readme",
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": ["prettier --write", "git add"]
+  }
+}
