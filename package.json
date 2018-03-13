@@ -1,6 +1,6 @@
 {
   "name": "file-util-git-history",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Get a file's git history",
   "main": "file-util-git-history.js",
   "files": ["file-util-git-history.js"],
