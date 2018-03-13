@@ -2,10 +2,9 @@ const { resolveGitFolder } = require("./file-util-git-history");
 const { resolve } = require("path");
 
 test("find git folder for current file", async () => {
-  expect.assertions(1);
-  const actual = await resolveGitFolder(__filename);
+  const actual = resolveGitFolder(__filename);
   const expected = resolve(__dirname, ".git");
-  expect(actual).toBe(expected);
+  await expect(actual).resolves.toBe(expected);
 });
 
 test("relative path should throw", async () => {
