@@ -6,9 +6,8 @@ const {
 const { resolve } = require("path");
 
 test("find git folder for current file", async () => {
-  const actualGitFolder = resolveGitFolder(__filename);
-  const expectedGitFolder = resolve(__dirname, ".git");
-  await expect(actualGitFolder).resolves.toBe(expectedGitFolder);
+  const gitFolder = resolveGitFolder(__filename);
+  await expect(gitFolder).resolves.toBe(__dirname);
 });
 
 test("relative path should throw", async () => {
@@ -22,19 +21,19 @@ test("path with not git parent should throw", async () => {
 });
 
 test("should read commits", async () => {
-  const history = readHistory(__filename, resolve(__dirname, ".git"));
+  const history = readHistory(__filename, __dirname);
   await expect(history).resolves.not.toHaveLength(0);
 });
 
 test("should have first commit", async () => {
-  const history = await readHistory(__filename, resolve(__dirname, ".git"));
+  const history = await readHistory(__filename, __dirname);
   const initialCommit = history[history.length - 1].commit.sha();
   // commit where this spec was added
   expect(initialCommit).toBe("a31293d6ff81be7e8f54181ff592a6efd91500fe");
 });
 
 test("missing file should fail", async () => {
-  const history = readHistory(__filename + ".dne", resolve(__dirname, ".git"));
+  const history = readHistory(__filename + ".dne", __dirname);
   await expect(history).rejects.toThrow();
 });
 
