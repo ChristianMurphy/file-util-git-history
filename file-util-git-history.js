@@ -1,6 +1,6 @@
 const { access } = require("fs");
 const { Repository, Revwalk } = require("nodegit");
-const { isAbsolute, parse, resolve } = require("path");
+const { isAbsolute, parse, resolve, relative } = require("path");
 const { promisify } = require("util");
 const assert = require("assert");
 
@@ -12,7 +12,7 @@ const accessAsync = promisify(access);
  * @returns {string} path to git parent folder
  */
 async function resolveGitFolder(path) {
-  assert(isAbsolute(path), "path must be absolute");
+  assert(isAbsolute(path), "git path must be absolute");
 
   // search has reached the file system root
   // and the git folder has not been found
@@ -25,7 +25,7 @@ async function resolveGitFolder(path) {
     await accessAsync(gitPath);
 
     // if no error has been thrown folder has been found
-    return gitPath;
+    return path;
   } catch (err) {
     // search parent folder
     return resolveGitFolder(resolve(path, ".."));
@@ -52,7 +52,7 @@ async function readHistory(filePath, gitPath) {
   // find commits that are related to file
   // NOTE: this may need to be made recursive to pull extremely long histories
   const history = await walker.fileHistoryWalk(
-    "file-util-git-history.js",
+    relative(gitPath, filePath),
     100000
   );
 
@@ -70,6 +70,7 @@ async function readHistory(filePath, gitPath) {
  * @returns {Commit[]} list of NodeGit commit objects
  */
 async function gitHistory(filePath, options = {}) {
+  assert(isAbsolute(filePath), "file path must be absolute");
   const gitPath = options.gitPath ? gitPath : await resolveGitFolder(filePath);
   return readHistory(filePath, gitPath);
 }
