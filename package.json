@@ -7,7 +7,6 @@
     "file-util-git-history.js"
   ],
   "scripts": {
-    "precommit": "lint-staged",
     "test": "eslint . && jest"
   },
   "repository": {
@@ -85,5 +84,10 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
