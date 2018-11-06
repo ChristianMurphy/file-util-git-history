@@ -3,16 +3,25 @@
   "version": "1.0.2",
   "description": "Get a file's git history",
   "main": "file-util-git-history.js",
-  "files": ["file-util-git-history.js"],
+  "files": [
+    "file-util-git-history.js"
+  ],
   "scripts": {
-    "precommit": "lint-staged",
     "test": "eslint . && jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChristianMurphy/file-util-git-history.git"
   },
-  "keywords": ["file", "utility", "git", "history", "source", "commit", "scm"],
+  "keywords": [
+    "file",
+    "utility",
+    "git",
+    "history",
+    "source",
+    "commit",
+    "scm"
+  ],
   "author": {
     "name": "Christian Murphy",
     "email": "Christian.Murphy.42@gmail.com",
@@ -24,13 +33,13 @@
   },
   "homepage": "https://github.com/ChristianMurphy/file-util-git-history#readme",
   "devDependencies": {
-    "eslint": "^4.18.2",
-    "eslint-plugin-jest": "^21.14.0",
-    "eslint-plugin-node": "^6.0.1",
-    "husky": "^0.14.3",
-    "jest": "^23.0.0",
-    "lint-staged": "^7.0.0",
-    "prettier": "^1.11.1"
+    "eslint": "^5.8.0",
+    "eslint-plugin-jest": "^21.27.1",
+    "eslint-plugin-node": "^8.0.0",
+    "husky": "^1.1.3",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.14.3"
   },
   "eslintConfig": {
     "env": {
@@ -43,7 +52,10 @@
     "parserOptions": {
       "ecmaVersion": 2018
     },
-    "plugins": ["jest", "node"],
+    "plugins": [
+      "jest",
+      "node"
+    ],
     "extends": [
       "eslint:recommended",
       "plugin:jest/recommended",
@@ -51,13 +63,16 @@
     ]
   },
   "lint-staged": {
-    "*.{js,json,md}": ["prettier --write", "git add"]
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "nodegit": "^0.22.0"
+    "nodegit": "^0.23.0"
   },
   "renovate": {
     "extends": [
@@ -69,5 +84,10 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
