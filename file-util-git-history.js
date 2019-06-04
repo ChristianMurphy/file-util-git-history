@@ -56,10 +56,6 @@ async function readHistory(filePath, gitPath) {
     100000
   );
 
-  // cleanup references to native code
-  walker.free();
-  repo.free();
-
   return history;
 }
 
