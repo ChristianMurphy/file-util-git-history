@@ -47,7 +47,7 @@ async function readHistory(filePath, gitPath) {
   const repo = await Repository.open(gitPath);
   const walker = repo.createRevWalk();
   walker.pushHead();
-  walker.sorting(Revwalk.SORT.Time);
+  walker.sorting(Revwalk.SORT.TIME);
 
   // find commits that are related to file
   // NOTE: this may need to be made recursive to pull extremely long histories

@@ -2,13 +2,12 @@ language: node_js
 node_js:
   - lts/carbon # version 8
   - lts/dubnium # version 10
+  - 12 # version 12
 os:
   - windows
   - linux
   - osx
-matrix:
-  allow_failures:
-    - os: windows
+cache: npm
 addons:
   apt:
     sources:

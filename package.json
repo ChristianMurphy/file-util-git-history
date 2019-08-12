@@ -72,7 +72,7 @@
     "node": "^8.0.0 || ^10.0.0"
   },
   "dependencies": {
-    "nodegit": "^0.24.0"
+    "nodegit": "^0.25.0"
   },
   "renovate": {
     "extends": [
