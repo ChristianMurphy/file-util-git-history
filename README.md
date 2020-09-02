@@ -1,7 +1,7 @@
 # file-util-git-history
 
 [![NPM Version](https://img.shields.io/npm/v/file-util-git-history.svg)](https://www.npmjs.com/package/file-util-git-history)
-[![ Build Status](https://travis-ci.org/ChristianMurphy/file-util-git-history.svg?branch=master)](https://travis-ci.org/ChristianMurphy/file-util-git-history)
+[![ Build Status](https://travis-ci.org/ChristianMurphy/file-util-git-history.svg?branch=main)](https://travis-ci.org/ChristianMurphy/file-util-git-history)
 
 ## Installation
 
@@ -21,7 +21,7 @@ const { gitHistory } = require("file-util-git-history");
 // get history for current file
 gitHistory(__filename)
   // get the SHA hash for each commit
-  .then(history => history.map(({ commit }) => commit.sha()))
+  .then((history) => history.map(({ commit }) => commit.sha()))
   // print out the SHAs
   .then(console.log);
 ```
