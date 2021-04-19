@@ -33,10 +33,10 @@
   },
   "homepage": "https://github.com/ChristianMurphy/file-util-git-history#readme",
   "devDependencies": {
-    "eslint": "^7.0.0",
-    "eslint-plugin-jest": "^24.0.0",
+    "eslint": "^7.20.0",
+    "eslint-plugin-jest": "^24.1.5",
     "eslint-plugin-node": "^11.0.0",
-    "husky": "^5.0.0",
+    "husky": "^6.0.0",
     "jest": "^26.0.0",
     "lint-staged": "^10.0.0",
     "prettier": "^2.0.0"
