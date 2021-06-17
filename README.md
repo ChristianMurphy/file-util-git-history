@@ -1,7 +1,7 @@
 # file-util-git-history
 
 [![NPM Version](https://img.shields.io/npm/v/file-util-git-history.svg)](https://www.npmjs.com/package/file-util-git-history)
-[![ Build Status](https://travis-ci.org/ChristianMurphy/file-util-git-history.svg?branch=main)](https://travis-ci.org/ChristianMurphy/file-util-git-history)
+[![CI](https://github.com/ChristianMurphy/file-util-git-history/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/ChristianMurphy/file-util-git-history/actions/workflows/main.yml)
 
 ## Installation
 
