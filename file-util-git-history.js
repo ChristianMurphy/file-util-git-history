@@ -4,12 +4,19 @@ const { isAbsolute, parse, resolve, relative } = require("path");
 const { promisify } = require("util");
 const assert = require("assert");
 
+/**
+ * @typedef {import("nodegit").Revwalk.HistoryEntry} HistoryEntry
+ *
+ * @typedef {Object} Options
+ * @property {string} [gitPath]
+ */
+
 const accessAsync = promisify(access);
 
 /**
  * Find closest git parent of a file or folder
  * @param {string} path - path to file or folder
- * @returns {string} path to git parent folder
+ * @returns {Promise<string>} path to git parent folder
  */
 async function resolveGitFolder(path) {
   assert(isAbsolute(path), "git path must be absolute");
@@ -36,7 +43,7 @@ async function resolveGitFolder(path) {
  * Read this history of a file in source control
  * @param {string} filePath - path to file
  * @param {string} gitPath - path to git folder
- * @returns {Commit[]} list of NodeGit commit objects
+ * @returns {Promise<HistoryEntry[]>} list of NodeGit commit objects
  */
 async function readHistory(filePath, gitPath) {
   // ensure filepath and gitpath exist
@@ -62,12 +69,14 @@ async function readHistory(filePath, gitPath) {
 /**
  * Read this history of a file in source control
  * @param {string} filePath - path to file
- * @param {Object} [options] - optional predetermined gitPath
- * @returns {Commit[]} list of NodeGit commit objects
+ * @param {Options} [options] - optional predetermined gitPath
+ * @returns {Promise<HistoryEntry[]>} list of NodeGit commit objects
  */
 async function gitHistory(filePath, options = {}) {
   assert(isAbsolute(filePath), "file path must be absolute");
-  const gitPath = options.gitPath ? options.gitPath : await resolveGitFolder(filePath);
+  const gitPath = options.gitPath
+    ? options.gitPath
+    : await resolveGitFolder(filePath);
   return readHistory(filePath, gitPath);
 }
 

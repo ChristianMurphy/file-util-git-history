@@ -3,11 +3,14 @@
   "version": "3.0.1",
   "description": "Get a file's git history",
   "main": "file-util-git-history.js",
+  "types": "file-util-git-history.d.ts",
   "files": [
-    "file-util-git-history.js"
+    "file-util-git-history.js",
+    "file-util-git-history.d.ts"
   ],
   "scripts": {
-    "test": "eslint . && jest"
+    "build": "rimraf \"{lib/**,}*.d.ts\" && tsc && type-coverage",
+    "test": "npm run build && eslint . && jest"
   },
   "repository": {
     "type": "git",
@@ -33,13 +36,17 @@
   },
   "homepage": "https://github.com/ChristianMurphy/file-util-git-history#readme",
   "devDependencies": {
-    "eslint": "^7.20.0",
-    "eslint-plugin-jest": "^24.1.5",
+    "@types/jest": "^26.0.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-jest": "^24.0.0",
     "eslint-plugin-node": "^11.0.0",
     "husky": "^6.0.0",
     "jest": "^27.0.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.0.0"
+    "prettier": "^2.0.0",
+    "rimraf": "^3.0.0",
+    "type-coverage": "^2.0.0",
+    "typescript": "^4.0.0"
   },
   "eslintConfig": {
     "env": {
@@ -71,6 +78,7 @@
     "node": "^10.0.0 || ^12.0.0 || ^14.0.0"
   },
   "dependencies": {
+    "@types/nodegit": "^0.27.0",
     "nodegit": "^0.27.0"
   },
   "renovate": {
@@ -88,5 +96,11 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "strict": true,
+    "ignoreCatch": true
   }
 }
