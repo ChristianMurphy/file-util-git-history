@@ -23,10 +23,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Dependencies for Ubuntu
-        if: startsWith(matrix.os, 'ubuntu')
-        run: sudo apt install build-essential libssl-dev libkrb5-dev libc++-dev
-
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
