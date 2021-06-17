@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [ubuntu-16.04, macOS-10.15]
+        platform: [ubuntu-16.04, macOS-10.15, windows-2016]
         node-version: [12, 14]
 
     name: "${{ matrix.platform }}: node.js ${{ matrix.node-version }}"
