@@ -8,7 +8,7 @@ const assert = require("assert");
  * @typedef {import("nodegit").Revwalk.HistoryEntry} HistoryEntry
  *
  * @typedef {Object} Options
- * @property {string} [gitPath]
+ * @property {string} [gitPath] predetermined git folder to get history from
  */
 
 const accessAsync = promisify(access);
