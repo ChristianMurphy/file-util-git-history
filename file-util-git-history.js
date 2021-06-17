@@ -67,7 +67,7 @@ async function readHistory(filePath, gitPath) {
  */
 async function gitHistory(filePath, options = {}) {
   assert(isAbsolute(filePath), "file path must be absolute");
-  const gitPath = options.gitPath ? gitPath : await resolveGitFolder(filePath);
+  const gitPath = options.gitPath ? options.gitPath : await resolveGitFolder(filePath);
   return readHistory(filePath, gitPath);
 }
 
