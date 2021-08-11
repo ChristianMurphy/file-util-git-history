@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "rimraf \"{lib/**,}*.d.ts\" && tsc && type-coverage",
-    "test": "npm run build && eslint . && jest"
+    "test": "npm run build && eslint . && jest",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -92,11 +93,6 @@
       ":ignoreUnstable",
       ":renovatePrefix"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "typeCoverage": {
     "atLeast": 100,
